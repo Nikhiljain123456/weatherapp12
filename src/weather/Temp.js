@@ -1,16 +1,29 @@
 import React ,{useState} from 'react';
+import axios from 'axios';
 import './style.css';
 import Tempcard from './Tempcard';
 function Temp() {
     const [SearchValue,setSearchvalue] =useState("pune");
     const [tempinfo,seytempinfo] = useState("");
 
-    const getWeatherInfo = async ()=>{
+    async  function gettest() {
+      
+
+    }
+
+    gettest();
+
+  
+    
+
+    const httpget = async ()=>{
         try {
-            let url =`http://api.openweathermap.org/data/2.5/weather?q=${SearchValue}&units=metric&appid=8369c0722e808c282cc103c18ed2b154`
+            const Api = "8369c0722e808c282cc103c18ed2b154"
+            let url =`http://api.openweathermap.org/data/2.5/weather?q=${SearchValue}&units=metric&appid=${Api}`;
             const res = await fetch(url);
             const data = await res.json();
-            console.log(data)
+           
+          
 
            const temp = data.main.temp;
            const humidity = data.main.humidity;
@@ -33,6 +46,8 @@ function Temp() {
            }
 
            seytempinfo(myNewWeatherinfo);
+       
+        
 
 
         
@@ -55,7 +70,7 @@ function Temp() {
                         
                         ></input>
 
-                    <button className="searchButton" type="button" onClick={getWeatherInfo} >search</button>
+                    <button className="searchButton" type="button" onClick={httpget} >search</button>
 
                 </div>
             </div>
