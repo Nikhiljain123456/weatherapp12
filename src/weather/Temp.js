@@ -21,7 +21,10 @@ function Temp() {
             const Api = "8369c0722e808c282cc103c18ed2b154"
             let url =`http://api.openweathermap.org/data/2.5/weather?q=${SearchValue}&units=metric&appid=${Api}`;
             const res = await fetch(url);
+            
             const data = await res.json();
+
+            console.log(data);
            
           
 
